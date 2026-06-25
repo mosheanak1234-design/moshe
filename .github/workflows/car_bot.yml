@@ -1,0 +1,41 @@
+name: 🚗 Car Deal Bot
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Restore seen listings cache
+        uses: actions/cache@v4
+        with:
+          path: seen_listings.json
+          key: seen-listings-${{ runner.os }}
+          restore-keys: |
+            seen-listings-
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run car bot
+        env:
+          TELEGRAM_USERNAME: ${{ secrets.TELEGRAM_USERNAME }}
+        run: python car_bot.py
+
+      - name: Save seen listings cache
+        uses: actions/cache@v4
+        with:
+          path: seen_listings.json
+          key: seen-listings-${{ runner.os }}-${{ github.run_id }}
