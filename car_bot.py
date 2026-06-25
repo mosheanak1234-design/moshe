@@ -19,7 +19,9 @@ SEEN_FILE = "seen_listings.json"
 
 # URL של חיפוש יד2 - כנס ליד2, סנן מה שאתה רוצה, העתק את הURL
 YAD2_SEARCH_URLS = [
-    "https://www.yad2.co.il/vehicles/cars?manufacturer=14&year=2018-2023&price=50000-150000",
+
+
+`"https://www.yad2.co.il/vehicles/cars?year=2019-2025"`
 ]
 
 # CallMeBot - טלגרם
