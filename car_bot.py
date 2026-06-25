@@ -21,7 +21,7 @@ SEEN_FILE = "seen_listings.json"
 YAD2_SEARCH_URLS = [
 
 
-`"https://www.yad2.co.il/vehicles/cars?year=2019-2025"`
+    "https://www.yad2.co.il/vehicles/cars?year=2019-2025"
 ]
 
 # CallMeBot - טלגרם
